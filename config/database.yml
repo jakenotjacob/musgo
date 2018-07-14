@@ -6,10 +6,12 @@ default: &default
 development:
   <<: *default
   database: mustgo_development
+  username: mustgo
 
 test:
   <<: *default
   database: mustgo_test
+  username: mustgo
 #     url: <%= ENV['DATABASE_URL'] %>
 
 production:
