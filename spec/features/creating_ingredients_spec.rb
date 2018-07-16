@@ -1,11 +1,12 @@
 require "rails_helper"
 
 RSpec.feature "Users can create new ingredients" do
-  scenario "with valid attributes" do
+  before do
     visit "/"
     click_link "Ingredients"
     click_link "New Ingredient"
-
+  end
+  scenario "with valid attributes" do
     fill_in "Name", with: "Ketchup"
     fill_in "Description", with: "This stuff is for fries!"
     click_button "Create Ingredient"
@@ -18,4 +19,13 @@ RSpec.feature "Users can create new ingredients" do
 
     expect(page).to have_content "Ingredient has been created."
   end
+
+  scenario "with invalid attributes" do
+    click_button "Create Ingredient"
+
+    expect(page).to have_content "Ingredient has not been created."
+    expect(page).to have_content "Name can't be blank"
+    #We'll keep description optional for now...
+  end
 end
+

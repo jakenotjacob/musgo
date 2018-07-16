@@ -12,10 +12,13 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
+
     if @ingredient.save
       flash[:notice] = "Ingredient has been created."
       redirect_to @ingredient
     else
+      flash.now[:alert] ="Ingredient has not been created."
+      render "new"
     end
   end
 
