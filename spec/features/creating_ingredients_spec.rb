@@ -1,11 +1,10 @@
-require "rails_helper"
-
-RSpec.feature "Users can create new ingredients" do
+feature "Users can create new ingredients" do
   before do
     visit "/"
     click_link "Ingredients"
     click_link "New Ingredient"
   end
+
   scenario "with valid attributes" do
     fill_in "Name", with: "Ketchup"
     fill_in "Description", with: "This stuff is for fries!"
