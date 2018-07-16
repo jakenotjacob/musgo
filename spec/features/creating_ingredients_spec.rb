@@ -10,7 +10,12 @@ RSpec.feature "Users can create new ingredients" do
     fill_in "Description", with: "This stuff is for fries!"
     click_button "Create Ingredient"
 
+    ingredient = Ingredient.find_by(name: 'Ketchup')
+    expect(page.current_url).to eq ingredient_url(ingredient)
+
+    title = "Ketchup - Ingredients - Mustgo"
+    expect(page).to have_title title
+
     expect(page).to have_content "Ingredient has been created."
   end
 end
-
