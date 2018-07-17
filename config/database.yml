@@ -5,17 +5,17 @@ default: &default
 
 development:
   <<: *default
-  database: mustgo_development
-  username: mustgo
+  database: musgo_development
+  username: musgo
 
 test:
   <<: *default
-  database: mustgo_test
-  username: mustgo
+  database: musgo_test
+  username: musgo
 #     url: <%= ENV['DATABASE_URL'] %>
 
 production:
   <<: *default
-  database: mustgo_production
-  username: mustgo
-  password: <%= ENV['MUSTGO_DATABASE_PASSWORD'] %>
+  database: musgo_production
+  username: musgo
+  password: <%= ENV['MUSGO_DATABASE_PASSWORD'] %>
